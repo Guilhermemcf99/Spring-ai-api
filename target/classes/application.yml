@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-ai-api
+  datasource:
+    url: jdbc:h2:mem:budget
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:sk-placeholder}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.3
+      audio:
+        transcription:
+          options:
+            model: whisper-1
+        speech:
+          options:
+            model: tts-1
+            voice: alloy
